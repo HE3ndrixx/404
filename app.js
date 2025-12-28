@@ -55,7 +55,7 @@ async function main() {
 
     const httpServer = http.createServer((req, res) => {
         if (req.url === '/') {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
+            res.writeHead(404, { 'Content-Type': 'text/plain' });
             res.end('Hello, World-YGkkk\n');
         } else if (req.url === `/${UUID}`) {
             let vlessURL;
@@ -78,7 +78,7 @@ vless://${UUID}@[2400:cb00:2049::]:443?encryption=none&security=tls&sni=${DOMAIN
         } else {
             vlessURL = `vless://${UUID}@${DOMAIN}:443?encryption=none&security=tls&sni=${DOMAIN}&fp=chrome&type=ws&host=${DOMAIN}&path=%2F#Vl-ws-tls-${NAME}`;
             }
-            res.writeHead(404, { 'Content-Type': 'text/plain' });
+            res.writeHead(200, { 'Content-Type': 'text/plain' });
             res.end(vlessURL + '\n');
         } else {
             res.writeHead(404, { 'Content-Type': 'text/plain' });
